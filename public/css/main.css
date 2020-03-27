@@ -1,0 +1,23 @@
+.chat-container {
+    /* margin: 100px; */
+    margin: auto;
+    max-width: 600px;
+}
+
+.chat-messages {
+    max-height: 500px;
+    overflow-y: scroll;
+}
+
+
+
+
+.message {
+    padding-left: 10px;
+    /* padding-top: 5px; */
+    padding-bottom: 2px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    background: rgb(204, 185, 185)
+        /* box-shadow: 1px 1px 6px 3px; */
+}

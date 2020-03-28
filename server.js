@@ -19,7 +19,8 @@ io.on('connection', (socket) => {
 	});
 
 	socket.on('disconnect', () => {
-		console.log('out');
+		// console.log('out');
+		io.emit('message', 'A user left');
 	});
 });
 

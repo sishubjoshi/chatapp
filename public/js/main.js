@@ -2,6 +2,10 @@ const socket = io();
 
 const chatForm = document.getElementById('chat-form');
 const chatMessages = document.querySelector('.chat-messages');
+
+const { username } = Qs.parse(location.search);
+console.log(username);
+
 chatForm.addEventListener('submit', (e) => {
 	e.preventDefault();
 

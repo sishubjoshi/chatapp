@@ -8,7 +8,7 @@ const { username } = Qs.parse(location.search, {
 });
 console.log(username);
 
-document.querySelector('.chat-header').innerHTML = `username: ${username}`;
+// document.querySelector('.chat-header').innerHTML = `username: ${username}`;
 
 chatForm.addEventListener('submit', (e) => {
 	e.preventDefault();
@@ -16,7 +16,7 @@ chatForm.addEventListener('submit', (e) => {
 	const msg = e.target.elements.msg.value;
 
 	console.log(msg);
-	socket.emit('chatMessage', msg);
+	socket.emit('chatMessage', { username, msg });
 
 	e.target.elements.msg.value = '';
 	e.target.elements.msg.focus();
@@ -33,9 +33,9 @@ function displayMessage(msg) {
 	div.classList.add('message');
 
 	div.innerHTML = `
-    <p class="meta">username <span>9:26 am</span></p>
+    <p class="meta"><b>${msg.username}</b> <span>${msg.time}</span></p>
     <p class="text">
-        ${msg}
+        ${msg.text}
     </p>`;
 
 	chatMessages.appendChild(div);

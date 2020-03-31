@@ -9,18 +9,23 @@ app.use(express.static(path.join(__dirname, 'public')));
 const server = http.createServer(app);
 const io = socketio(server);
 
+// get utils
+const formatMessage = require('./utils/message');
+
 io.on('connection', (socket) => {
 	// console.log('connection established');
-	socket.broadcast.emit('message', 'A user has joined..');
 
-	socket.on('chatMessage', (msg) => {
+	// io.emit('message', formatMessage('Bot', 'Welcome to ChatApp'));
+	socket.broadcast.emit('message', formatMessage('Bot', `A user has joined`));
+
+	socket.on('chatMessage', ({ username, msg }) => {
 		// console.log(msg);
-		io.emit('message', msg);
+		io.emit('message', formatMessage(username, msg));
 	});
 
 	socket.on('disconnect', () => {
 		// console.log('out');
-		io.emit('message', 'A user left');
+		io.emit('message', formatMessage('Bot', 'A user left'));
 	});
 });
 

@@ -14,13 +14,18 @@
 
 <body>
 
-    <div class="header">
+    <!-- <div class="header">
         <h1> ChatApp</h1>
-    </div>
+    </div> -->
 
     <div class="chat-container">
 
         <div class="chat-header">
+            <a id="exit-button" href="/">
+                <i class="fas fa-arrow-circle-left"></i>
+                Leave
+            </a>
+
         </div>
         <div class="chat-messages">
             <!-- <div class="message">
@@ -40,8 +45,11 @@
         </div>
         <div class="input-box">
             <form id="chat-form">
-                <input type="text" name="message" id="msg">
-                <button class="btn"><i class="fas fa-paper-plane"></i>send</button>
+                <div class="form-group">
+                    <input type="text" name="message" class="form-control" id="chatmessage">
+                    <button class="" id="message-send"><i class="fas fa-paper-plane"></i></button>
+                </div>
+
             </form>
         </div>
     </div>

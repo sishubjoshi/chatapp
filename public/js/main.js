@@ -13,13 +13,13 @@ console.log(username);
 chatForm.addEventListener('submit', (e) => {
 	e.preventDefault();
 
-	const msg = e.target.elements.msg.value;
+	const msg = e.target.elements.chatmessage.value;
 
 	console.log(msg);
 	socket.emit('chatMessage', { username, msg });
 
-	e.target.elements.msg.value = '';
-	e.target.elements.msg.focus();
+	e.target.elements.chatmessage.value = '';
+	e.target.elements.chatmessage.focus();
 });
 
 socket.on('message', (msg) => {
